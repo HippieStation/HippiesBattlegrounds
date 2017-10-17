@@ -1,24 +1,23 @@
-## /tg/station codebase
+## Hippie's Battlegrounds codebase
 
-[![Build Status](https://travis-ci.org/tgstation/tgstation.png)](https://travis-ci.org/tgstation/tgstation) [![Krihelimeter](http://www.krihelinator.xyz/badge/tgstation/tgstation)](http://www.krihelinator.xyz)  
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/tgstation/tgstation.svg)](http://isitmaintained.com/project/tgstation/tgstation "Percentage of issues still open") [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/tgstation/tgstation.svg)](http://isitmaintained.com/project/tgstation/tgstation "Average time to resolve an issue") ![Coverage](https://s3.amazonaws.com/assets.coveralls.io/badges/coveralls_0.svg)  
-[![forthebadge](http://forthebadge.com/images/badges/built-with-resentment.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/contains-technical-debt.svg)](http://forthebadge.com) [![forinfinityandbyond](https://user-images.githubusercontent.com/5211576/29499758-4efff304-85e6-11e7-8267-62919c3688a9.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
+[![Build Status](https://travis-ci.org/tgstation/tgstation.png)](https://travis-ci.org/JamieH/HippiesBattlegrounds) [![Krihelimeter](http://www.krihelinator.xyz/badge/tgstation/tgstation)](http://www.krihelinator.xyz)   
+[![forthebadge](http://forthebadge.com/images/badges/for-you.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/powered-by-water.svg)](http://forthebadge.com) [![forinfinityandbyond](https://user-images.githubusercontent.com/5211576/29499758-4efff304-85e6-11e7-8267-62919c3688a9.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
-**Website:** http://www.tgstation13.org <BR>
-**Code:** https://github.com/tgstation/tgstation <BR>
-**Wiki** http://tgstation13.org/wiki/Main_Page <BR>
-**IRC:** irc://irc.rizon.net/coderbus or if you dont have an IRC client, you can click  [here](https://kiwiirc.com/client/irc.rizon.net:6667/?&theme=cli#coderbus).<BR>
+**Website:** http://www.hippiestation.com <BR>
+**Code:** https://github.com/hippiestation/hippiestation <BR>
+**Wiki:** https://wiki.hippiestation.com/index.php?title=Main_Page <BR>
+**Discord:** [Request access here.](https://hippiestation.com/threads/discord-invites.6055) <BR>
 
 
 ## DOWNLOADING
 
-There are a number of ways to download the source code. Some are described here, an alternative all-inclusive guide is also located at http://www.tgstation13.org/wiki/Downloading_the_source_code
+There are a number of ways to download the source code. Some are described here, an alternative all-inclusive guide is also located at https://wiki.hippiestation.com/index.php?title=Downloading_the_source_code
 
 Option 1:
-Follow this: http://www.tgstation13.org/wiki/Setting_up_git
+Follow this: https://wiki.hippiestation.com/index.php?title=Setting_up_git
 
 Option 2: Download the source code as a zip by clicking the ZIP button in the
-code tab of https://github.com/tgstation/tgstation
+code tab of https://github.com/JamieH/HippiesBattlegrounds
 (note: this will use a lot of bandwidth if you wish to update and is a lot of
 hassle if you want to make any changes at all, so it's not recommended.)
 
@@ -50,7 +49,7 @@ so they may have unknown and bizarre bugs.  Extended is essentially no mode, and
 isn't in the Secret rotation by default as it's just not very fun.
 
 You'll also want to edit config/admins.txt to remove the default admins and add
-your own.  "Game Master" is the highest level of access, and probably the one
+your own. "Game Master" is the highest level of access, and probably the one
 you'll want to use for now.  You can set up your own ranks and find out more in
 config/admin_ranks.txt
 
@@ -87,30 +86,7 @@ https://github.com/tgstation/tgstation-server
 
 ## MAPS
 
-/tg/station currently comes equipped with five maps.
-
-* [BoxStation (default)](http://tgstation13.org/wiki/Boxstation)
-* [MetaStation](https://tgstation13.org/wiki/MetaStation)
-* [DeltaStation](https://tgstation13.org/wiki/DeltaStation)
-* [OmegaStation](https://tgstation13.org/wiki/OmegaStation)
-* [PubbyStation](https://tgstation13.org/wiki/PubbyStation)
-
-
-All maps have their own code file that is in the base of the _maps directory. Maps are loaded dynamically when the game starts. Follow this guideline when adding your own map, to your fork, for easy compatibility.
-
-The map that will be loaded for the upcoming round is determined by reading data/next_map.json, which is a copy of the json files found in the _maps tree. If this file does not exist, the default map from config/maps.txt will be loaded. Failing that, tgstation2 will be loaded. If you want to set a specific map to load next round you can use the Change Map verb in game before restarting the server or copy a json from _maps to data/next_map.json before starting the server. Also, for debugging purposes, ticking a corresponding map's code file in Dream Maker will force that map to load every round.
-
-If you are hosting a server, and want randomly picked maps to be played each round, you can enable map rotation in [config.txt](config/config.txt) and then set the maps to be picked in the [maps.txt](config/maps.txt) file.
-
-Anytime you want to make changes to a map it's imperative you use the [Map Merging tools](http://tgstation13.org/wiki/Map_Merger)
-
-## AWAY MISSIONS
-
-/tg/station supports loading away missions however they are disabled by default.
-
-Map files for away missions are located in the _maps/RandomZLevels directory. Each away mission includes it's own code definitions located in /code/modules/awaymissions/mission_code. These files must be included and compiled with the server beforehand otherwise the server will crash upon trying to load away missions that lack their code.
-
-To enable an away mission open `config/awaymissionconfig.txt` and uncomment one of the .dmm lines by removing the #. If more than one away mission is uncommented then the away mission loader will randomly select one the enabled ones to load.
+No offical maps as of now.
 
 ## SQL SETUP
 
