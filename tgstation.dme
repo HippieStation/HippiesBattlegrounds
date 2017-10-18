@@ -2234,5 +2234,4 @@
 #include "interface\menu.dm"
 #include "interface\stylesheet.dm"
 #include "interface\skin.dmf"
-#include "vietnam\code\modules\projectiles\projectile.dm"
 // END_INCLUDE
