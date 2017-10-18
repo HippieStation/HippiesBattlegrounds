@@ -1,0 +1,34 @@
+{
+    "version": "0.1.0",
+    "tasks": [
+        {
+            "taskName": "build",
+            "isBuildCommand": true,
+			"isShellCommand": true,
+            "command": "C:\\Program Files (x86)\\BYOND\\bin\\dm.exe",
+            "args": [
+                "${workspaceRoot}\\game.dme"
+            ],
+            "showOutput": "always",
+            "problemMatcher": {
+                "fileLocation": [ "relative", "${workspaceRoot}" ],
+                "pattern": {
+                    "regexp": "^(.*):(.*):(error|warning):(.*)",
+                    "file": 1,
+                    "line": 2,
+                    "message": 4,
+                    "severity" : 3
+                }
+            }
+        },
+        {
+           "taskName": "run",
+			"isShellCommand": true,
+            "command": "C:\\Program Files (x86)\\BYOND\\bin\\dreamseeker.exe",
+            "args": [
+                "${workspaceRoot}\\game.dmb", "-trusted"
+            ],
+            "showOutput": "always"
+        }
+    ]
+}
