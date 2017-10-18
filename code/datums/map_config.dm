@@ -4,12 +4,10 @@
 //  -Cyberboss
 
 /datum/map_config
-	var/config_filename = "_maps/boxstation.json"
-	var/map_name = "Box Station"
-	var/map_path = "map_files/BoxStation"
-	var/map_file = "BoxStation.dmm"
-
-	var/minetype = "lavaland"
+	var/config_filename = "_maps/runtimestation.json"
+	var/map_name = "Runtime Station"
+	var/map_path = "map_files/debug"
+	var/map_file = "runtimestation.dmm"
 
 	//Order matters here.
 	var/list/transition_config = list(CENTCOM = SELFLOOPING,
@@ -67,8 +65,6 @@
 	map_name = json["map_name"]
 	map_path = json["map_path"]
 	map_file = json["map_file"]
-
-	minetype = json["minetype"]
 	allow_custom_shuttles = json["allow_custom_shuttles"]
 
 	var/list/jtcl = json["transition_config"]
@@ -86,7 +82,6 @@
 	CHECK_EXISTS("map_name")
 	CHECK_EXISTS("map_path")
 	CHECK_EXISTS("map_file")
-	CHECK_EXISTS("minetype")
 	CHECK_EXISTS("transition_config")
 	CHECK_EXISTS("allow_custom_shuttles")
 
