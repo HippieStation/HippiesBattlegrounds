@@ -40,7 +40,7 @@
 	var/new_x = 0
 	var/new_y = 0
 
-	var/speed = 0.8			//Amount of deciseconds it takes for projectile to travel
+	var/speed = 0.4			//Amount of deciseconds it takes for projectile to travel
 	var/Angle = 0
 	var/nondirectional_sprite = FALSE //Set TRUE to prevent projectiles from having their sprites rotated based on firing angle
 	var/spread = 0			//amount (in degrees) of projectile spread
@@ -49,6 +49,8 @@
 	var/ricochets_max = 2
 	var/ricochet_chance = 30
 	var/ignore_source_check = FALSE
+	var/penetration = 1//like forcedodge but not infinite and will affect damage dealt to objects (soon)
+	var/penetration_damage_falloff = 5
 
 	var/damage = 10
 	var/damage_type = BRUTE //BRUTE, BURN, TOX, OXY, CLONE are the only things that should be in here
@@ -62,9 +64,9 @@
 	var/knockdown = 0
 	var/unconscious = 0
 	var/irradiate = 0
-	var/stutter = 0
+	var/stutter = 2
 	var/slur = 0
-	var/eyeblur = 0
+	var/eyeblur = 2
 	var/drowsy = 0
 	var/stamina = 0
 	var/jitter = 0
@@ -184,13 +186,18 @@
 	var/turf/target_turf = get_turf(A)
 
 	if(!prehit(A))
-		if(forcedodge)
+		if(forcedodge || penetration)
 			loc = target_turf
 		return FALSE
 
 	var/permutation = A.bullet_act(src, def_zone) // searches for return value, could be deleted after run so check A isn't null
-	if(permutation == -1 || forcedodge)// the bullet passes through a dense object!
+	if(permutation == -1 || forcedodge || penetration)// the bullet passes through a dense object!
 		loc = target_turf
+		penetration--
+
+		if(initial(penetration))
+			damage = max(damage - penetration_damage_falloff, 0)
+
 		if(A)
 			permutated.Add(A)
 		return FALSE
