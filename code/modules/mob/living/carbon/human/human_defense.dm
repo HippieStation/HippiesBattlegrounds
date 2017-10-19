@@ -356,8 +356,6 @@
 
 /mob/living/carbon/human/ex_act(severity, target, origin)
 
-	if(origin && istype(origin, /datum/spacevine_mutation) && isvineimmune(src))
-		return
 	..()
 	var/b_loss = 0
 	var/f_loss = 0

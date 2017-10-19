@@ -163,7 +163,7 @@ SUBSYSTEM_DEF(shuttle)
 		var/mob/M = I
 		if(M.stat != DEAD)
 			++alive
-	
+
 	var/total = GLOB.joined_player_list.len
 
 	if(alive / total <= threshold)
@@ -566,9 +566,6 @@ SUBSYSTEM_DEF(shuttle)
 		requestlist = SSshuttle.requestlist
 	if (istype(SSshuttle.orderhistory))
 		orderhistory = SSshuttle.orderhistory
-
-	if (istype(SSshuttle.shuttle_loan))
-		shuttle_loan = SSshuttle.shuttle_loan
 
 	if (istype(SSshuttle.shuttle_purchase_requirements_met))
 		shuttle_purchase_requirements_met = SSshuttle.shuttle_purchase_requirements_met

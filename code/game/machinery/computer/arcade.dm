@@ -7,7 +7,6 @@
 	clockwork = TRUE //it'd look weird
 	var/list/prizes = list(
 		/obj/item/storage/box/snappops					= 2,
-		/obj/item/toy/talking/AI								= 2,
 		/obj/item/toy/talking/codex_gigas						= 2,
 		/obj/item/clothing/under/syndicate/tacticool			= 2,
 		/obj/item/toy/sword										= 2,

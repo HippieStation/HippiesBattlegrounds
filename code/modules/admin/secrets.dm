@@ -423,16 +423,9 @@
 			if(!check_rights(R_FUN))
 				return
 			SSblackbox.add_details("admin_secrets_fun_used","Virus Outbreak")
-			switch(alert("Do you want this to be a random disease or do you have something in mind?",,"Make Your Own","Random","Choose"))
+			switch(alert("Do you want this to be a random disease or do you have something in mind?",,"Make Your Own","Choose"))
 				if("Make Your Own")
 					AdminCreateVirus(usr.client)
-				if("Random")
-					E = new /datum/round_event/disease_outbreak()
-				if("Choose")
-					var/virus = input("Choose the virus to spread", "BIOHAZARD") as null|anything in typesof(/datum/disease)
-					E = new /datum/round_event/disease_outbreak{}()
-					var/datum/round_event/disease_outbreak/DO = E
-					DO.virus_type = virus
 
 		if("retardify")
 			if(!check_rights(R_FUN))

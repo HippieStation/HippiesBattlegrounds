@@ -273,18 +273,6 @@
 
 
 
-/datum/admins/proc/makeAliens()
-	var/datum/round_event/ghost_role/alien_infestation/E = new(FALSE)
-	E.spawncount = 3
-	// TODO The fact we have to do this rather than just have events start
-	// when we ask them to, is bad.
-	E.processing = TRUE
-	return TRUE
-
-/datum/admins/proc/makeSpaceNinja()
-	new /datum/round_event/ghost_role/ninja()
-	return 1
-
 // DEATH SQUADS
 /datum/admins/proc/makeDeathsquad()
 	var/mission = input("Assign a mission to the deathsquad", "Assign Mission", "Leave no witnesses.")
@@ -513,12 +501,3 @@
 			return 0
 
 	return
-
-//Abductors
-/datum/admins/proc/makeAbductorTeam()
-	new /datum/round_event/ghost_role/abductor
-	return 1
-
-/datum/admins/proc/makeRevenant()
-	new /datum/round_event/ghost_role/revenant(TRUE, TRUE)
-	return 1

@@ -30,20 +30,3 @@
 	var/damage_bonus = 0
 	var/mob/living/wizard
 	var/turf/start_turf
-	notify = FALSE
-
-/obj/effect/immovablerod/wizard/Move()
-	if(get_dist(start_turf, get_turf(src)) >= max_distance)
-		qdel(src)
-	..()
-
-/obj/effect/immovablerod/wizard/Destroy()
-	if(wizard)
-		wizard.status_flags &= ~GODMODE
-		wizard.notransform = 0
-		wizard.forceMove(get_turf(src))
-	return ..()
-
-/obj/effect/immovablerod/wizard/penetrate(mob/living/L)
-	L.visible_message("<span class='danger'>[L] is penetrated by an immovable rod!</span>" , "<span class='userdanger'>The rod penetrates you!</span>" , "<span class ='danger'>You hear a CLANG!</span>")
-	L.adjustBruteLoss(70 + damage_bonus)

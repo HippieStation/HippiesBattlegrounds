@@ -406,7 +406,7 @@
 		if(myseed)
 			qdel(myseed)
 			myseed = null
-		var/newWeed = pick(/obj/item/seeds/liberty, /obj/item/seeds/angel, /obj/item/seeds/nettle/death, /obj/item/seeds/kudzu)
+		var/newWeed = pick(/obj/item/seeds/liberty, /obj/item/seeds/angel, /obj/item/seeds/nettle/death)
 		myseed = new newWeed
 		dead = 0
 		hardmutate()
@@ -744,8 +744,6 @@
 
 	else if(istype(O, /obj/item/seeds) && !istype(O, /obj/item/seeds/sample))
 		if(!myseed)
-			if(istype(O, /obj/item/seeds/kudzu))
-				investigate_log("had Kudzu planted in it by [user.ckey]([user]) at ([x],[y],[z])","kudzu")
 			if(!user.transferItemToLoc(O, src))
 				return
 			to_chat(user, "<span class='notice'>You plant [O].</span>")

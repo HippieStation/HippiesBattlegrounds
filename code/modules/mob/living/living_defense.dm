@@ -266,11 +266,6 @@
 			M.do_attack_animation(src, ATTACK_EFFECT_DISARM)
 			return 1
 
-/mob/living/ex_act(severity, target, origin)
-	if(origin && istype(origin, /datum/spacevine_mutation) && isvineimmune(src))
-		return
-	..()
-
 //Looking for irradiate()? It's been moved to radiation.dm under the rad_act() for mobs.
 
 /mob/living/acid_act(acidpwr, acid_volume)
