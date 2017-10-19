@@ -32,40 +32,18 @@ SUBSYSTEM_DEF(mapping)
 
 /datum/controller/subsystem/mapping/Initialize(timeofday)
 	if(config.defaulted)
-		to_chat(world, "<span class='boldannounce'>Unable to load next map config, defaulting to Box Station</span>")
+		to_chat(world, "<span class='boldannounce'>Unable to load next map config, defaulting to the default</span>")
 	loadWorld()
 	repopulate_sorted_areas()
-	process_teleport_locs()			//Sets up the wizard teleport locations
+	process_teleport_locs()
 	preloadTemplates()
-	// Pick a random away mission.
-	createRandomZlevel()
-	// Generate mining.
-	loading_ruins = TRUE
-	var/mining_type = config.minetype
-	if (mining_type == "lavaland")
-		seedRuins(list(ZLEVEL_LAVALAND), CONFIG_GET(number/lavaland_budget), /area/lavaland/surface/outdoors/unexplored, lava_ruins_templates)
-		spawn_rivers()
-
-	// deep space ruins
-	var/space_zlevels = list()
-	for(var/i in ZLEVEL_SPACEMIN to ZLEVEL_SPACEMAX)
-		switch(i)
-			if(ZLEVEL_MINING, ZLEVEL_LAVALAND, ZLEVEL_EMPTY_SPACE, ZLEVEL_TRANSIT, ZLEVEL_CITYOFCOGS)
-				continue
-			else
-				space_zlevels += i
-
-	seedRuins(space_zlevels, CONFIG_GET(number/space_budget), /area/space, space_ruins_templates)
-	loading_ruins = FALSE
 	repopulate_sorted_areas()
-	// Set up Z-level transistions.
 	setup_map_transitions()
 	..()
 
 /* Nuke threats, for making the blue tiles on the station go RED
    Used by the AI doomsday and the self destruct nuke.
 */
-
 /datum/controller/subsystem/mapping/proc/add_nuke_threat(datum/nuke)
 	nuke_threats[nuke] = TRUE
 	check_nuke_threats()
@@ -122,9 +100,6 @@ SUBSYSTEM_DEF(mapping)
 	if(SSdbcore.Connect())
 		var/datum/DBQuery/query_round_map_name = SSdbcore.NewQuery("UPDATE [format_table_name("round")] SET map_name = '[config.map_name]' WHERE id = [GLOB.round_id]")
 		query_round_map_name.Execute()
-
-	if(config.minetype != "lavaland")
-		INIT_ANNOUNCE("WARNING: A map without lavaland set as it's minetype was loaded! This is being ignored! Update the maploader code!")
 
 	CreateSpace(ZLEVEL_SPACEMAX)
 

@@ -1,4 +1,4 @@
-## Hippie's Battlegrounds codebase [![Build Status](https://jenkins.hippiestation.com/buildStatus/icon?job=Hippie's%20Battle%20Grounds)](https://jenkins.hippiestation.com/job/Hippie's%20Battle%20Grounds/)
+## Hippie's Battlegrounds codebase
 
 [![forthebadge](http://forthebadge.com/images/badges/for-you.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/powered-by-water.svg)](http://forthebadge.com) [![forinfinityandbyond](https://user-images.githubusercontent.com/5211576/29499758-4efff304-85e6-11e7-8267-62919c3688a9.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
@@ -26,13 +26,13 @@ First-time installation should be fairly straightforward.  First, you'll need
 BYOND installed.  You can get it from http://www.byond.com/.  Once you've done
 that, extract the game files to wherever you want to keep them.  This is a
 sourcecode-only release, so the next step is to compile the server files.
-Open tgstation.dme by double-clicking it, open the Build menu, and click
+Open game.dme by double-clicking it, open the Build menu, and click
 compile.  This'll take a little while, and if everything's done right you'll get
 a message like this:
 
 ```
-saving tgstation.dmb (DEBUG mode)
-tgstation.dmb - 0 errors, 0 warnings
+saving game.dmb (DEBUG mode)
+game.dmb - 0 errors, 0 warnings
 ```
 
 If you see any errors or warnings, something has gone wrong - possibly a corrupt
@@ -80,7 +80,7 @@ the new version.
 ## HOSTING
 
 If you'd like a more robust server hosting option for tgstation and its
-derivatives. Check out our server tools suite at 
+derivatives. Check out our server tools suite at
 https://github.com/tgstation/tgstation-server
 
 ## MAPS

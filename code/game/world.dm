@@ -104,7 +104,7 @@ GLOBAL_PROTECT(security_mode)
 	//try to write to data
 	if(!text2file("The world is running at least safe mode", "data/server_security_check.lock"))
 		GLOB.security_mode = SECURITY_ULTRASAFE
-		warning("/tg/station 13 is not supported in ultrasafe security mode. Everything will break!")
+		warning("Running this game is not supported in ultrasafe security mode. Everything will break!")
 		return
 
 	//try to shell
@@ -112,7 +112,7 @@ GLOBAL_PROTECT(security_mode)
 		GLOB.security_mode = SECURITY_TRUSTED
 	else
 		GLOB.security_mode = SECURITY_SAFE
-		warning("/tg/station 13 uses many file operations, a few shell()s, and some external call()s. Trusted mode is recommended. You can download our source code for your own browsing and compilation at https://github.com/tgstation/tgstation")
+		warning("This game uses many file operations, a few shell()s, and some external call()s. Trusted mode is recommended. You can download our source code for your own browsing and compilation at https://github.com/JamieH/HippiesBattlegrounds")
 
 /world/Topic(T, addr, master, key)
 	var/static/list/topic_handlers = TopicHandlers()
@@ -123,7 +123,7 @@ GLOBAL_PROTECT(security_mode)
 		if(I in input)
 			handler = topic_handlers[I]
 			break
-	
+
 	if((!handler || initial(handler.log)) && config && CONFIG_GET(flag/log_world_topic))
 		WRITE_FILE(GLOB.world_game_log, "TOPIC: \"[T]\", from:[addr], master:[master], key:[key]")
 
