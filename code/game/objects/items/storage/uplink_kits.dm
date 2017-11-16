@@ -71,7 +71,6 @@
 			new /obj/item/aiModule/syndicate(src)
 			new /obj/item/card/emag(src)
 			new /obj/item/device/encryptionkey/binary(src)
-			new /obj/item/aiModule/toyAI(src)
 			new /obj/item/device/multitool/ai_detect(src)
 
 		if("lordsingulo") // 24 tc

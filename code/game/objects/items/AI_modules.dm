@@ -496,36 +496,6 @@ AI MODULES
 			law_datum.replace_random_law(laws[1],list(LAW_ION,LAW_INHERENT,LAW_SUPPLIED))
 	return laws[1]
 
-/******************* Ion Module *******************/
-
-/obj/item/aiModule/toyAI // -- Incoming //No actual reason to inherit from ion boards here, either. *sigh* ~Miauw
-	name = "toy AI"
-	desc = "A little toy model AI core with real law uploading action!" //Note: subtle tell
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "AI"
-	origin_tech = "programming=6;materials=5;syndicate=6"
-	laws = list("")
-
-/obj/item/aiModule/toyAI/transmitInstructions(datum/ai_laws/law_datum, mob/sender, overflow)
-	//..()
-	if(law_datum.owner)
-		to_chat(law_datum.owner, "<span class='warning'>BZZZZT</span>")
-		if(!overflow)
-			law_datum.owner.add_ion_law(laws[1])
-		else
-			law_datum.owner.replace_random_law(laws[1],list(LAW_ION,LAW_INHERENT,LAW_SUPPLIED))
-	else
-		if(!overflow)
-			law_datum.add_ion_law(laws[1])
-		else
-			law_datum.replace_random_law(laws[1],list(LAW_ION,LAW_INHERENT,LAW_SUPPLIED))
-	return laws[1]
-
-/obj/item/aiModule/toyAI/attack_self(mob/user)
-	laws[1] = generate_ion_law()
-	to_chat(user, "<span class='notice'>You press the button on [src].</span>")
-	playsound(user, 'sound/machines/click.ogg', 20, 1)
-	src.loc.visible_message("<span class='warning'>[icon2html(src, viewers(loc))] [laws[1]]</span>")
 
 /******************** Mother Drone  ******************/
 

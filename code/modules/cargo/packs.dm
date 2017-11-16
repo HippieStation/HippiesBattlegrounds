@@ -1638,7 +1638,6 @@
 	contains = list(/obj/item/toy/spinningtoy,
 	                /obj/item/toy/sword,
 	                /obj/item/toy/foamblade,
-	                /obj/item/toy/talking/AI,
 	                /obj/item/toy/talking/owl,
 	                /obj/item/toy/talking/griffin,
 	                /obj/item/toy/nuke,

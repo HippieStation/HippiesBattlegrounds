@@ -45,7 +45,6 @@
 		dat += {"
 			<B>Fun Secrets</B><BR>
 			<BR>
-			<A href='?src=\ref[src];[HrefToken()];secrets=virus'>Trigger a Virus Outbreak</A><BR>
 			<A href='?src=\ref[src];[HrefToken()];secrets=monkey'>Turn all humans into monkeys</A><BR>
 			<A href='?src=\ref[src];[HrefToken()];secrets=anime'>Chinese Cartoons</A><BR>
 			<A href='?src=\ref[src];[HrefToken()];secrets=allspecies'>Change the species of all humans</A><BR>
@@ -418,21 +417,6 @@
 
 		if("floorlava")
 			SSweather.run_weather("the floor is lava")
-
-		if("virus")
-			if(!check_rights(R_FUN))
-				return
-			SSblackbox.add_details("admin_secrets_fun_used","Virus Outbreak")
-			switch(alert("Do you want this to be a random disease or do you have something in mind?",,"Make Your Own","Random","Choose"))
-				if("Make Your Own")
-					AdminCreateVirus(usr.client)
-				if("Random")
-					E = new /datum/round_event/disease_outbreak()
-				if("Choose")
-					var/virus = input("Choose the virus to spread", "BIOHAZARD") as null|anything in typesof(/datum/disease)
-					E = new /datum/round_event/disease_outbreak{}()
-					var/datum/round_event/disease_outbreak/DO = E
-					DO.virus_type = virus
 
 		if("retardify")
 			if(!check_rights(R_FUN))
